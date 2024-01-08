@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">ToDO</string>
-<<<<<<< HEAD
-=======
     <string name="title_activity_taks">Taks</string>
->>>>>>> a9def792ec195cb50dacc838ba55fb87f6b09b83
 </resources>

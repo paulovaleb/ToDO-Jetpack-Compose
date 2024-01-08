@@ -50,10 +50,6 @@ android {
 }
 
 dependencies {
-<<<<<<< HEAD
-=======
-
->>>>>>> a9def792ec195cb50dacc838ba55fb87f6b09b83
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -74,9 +70,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation ("androidx.activity:activity-ktx:1.8.2")
     implementation ("androidx.fragment:fragment-ktx:1.6.2")
-<<<<<<< HEAD
     implementation ("androidx.compose.material:material-icons-extended:1.5.4")
 
-=======
->>>>>>> a9def792ec195cb50dacc838ba55fb87f6b09b83
 }

@@ -5,22 +5,15 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.content.ContentValues
 import android.database.Cursor
-<<<<<<< HEAD
-import android.util.Log
+
 
 interface DatabaseHandler {
     fun addNewTasks(TasksName: String?, TasksDuration: String?)
     fun readTasks(): ArrayList<TasksModel>?
     fun readTasksNotSelected(): ArrayList<TasksModel>?
     fun readTasksSelected(): ArrayList<TasksModel>?
-=======
-
-
-interface DatabaseHandler {
-    fun addNewTasks(TasksName: String?, TasksDuration: String?)
-    fun readTaskss(): ArrayList<TasksModel>?
->>>>>>> a9def792ec195cb50dacc838ba55fb87f6b09b83
     fun updateTasks(TasksCod: Int, TasksName: String?, TasksDuration: String?, TasksIsSelected: Int)
+
 }
 
 class DBHandler(context: Context) :
@@ -52,7 +45,7 @@ class DBHandler(context: Context) :
         onCreate(db)
     }
 
-<<<<<<< HEAD
+
     override fun readTasksNotSelected(): ArrayList<TasksModel>? {
         val db = this.readableDatabase
         val selectedColValue = 0
@@ -118,41 +111,6 @@ class DBHandler(context: Context) :
 
         return TasksModelArrayList
     }
-    override fun updateTasks(
-        TasksCod: Int,
-        TasksName: String?,
-        TasksDuration: String?,
-        TasksIsSelected: Int
-    ) {
-        val db = this.writableDatabase
-        val values = ContentValues()
-        val whereArgs = arrayOf(TasksCod.toString())
-        values.put(NAME_COL, TasksName)
-        values.put(DURATION_COL, TasksDuration)
-        values.put(SELECTED_COL, TasksIsSelected)
-        db.update(TABLE_NAME, values, "id = ?", whereArgs)
-=======
-    override fun readTaskss(): ArrayList<TasksModel>? {
-        val db = this.readableDatabase
-        val cursorTaskss: Cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
-        val TasksModelArrayList: ArrayList<TasksModel> = ArrayList()
-
-        if (cursorTaskss.moveToFirst()) {
-            do {
-                TasksModelArrayList.add(
-                    TasksModel(
-                        cursorTaskss.getInt(0),
-                        cursorTaskss.getString(1),
-                        cursorTaskss.getString(2),
-                        cursorTaskss.getInt(3)
-                    )
-                )
-            } while (cursorTaskss.moveToNext())
-        }
-        cursorTaskss.close()
-        return TasksModelArrayList
-    }
-
     override fun updateTasks(TasksCod: Int, TasksName: String?, TasksDuration: String?, TasksIsSelected: Int) {
         val db = this.writableDatabase
         val values = ContentValues()
@@ -160,7 +118,7 @@ class DBHandler(context: Context) :
         values.put(DURATION_COL, TasksDuration)
         values.put(SELECTED_COL, TasksIsSelected)
         db.update(TABLE_NAME, values, "id = ?", arrayOf(TasksCod.toString()))
->>>>>>> a9def792ec195cb50dacc838ba55fb87f6b09b83
+
         db.close()
     }
 
